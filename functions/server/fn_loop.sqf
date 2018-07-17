@@ -51,20 +51,12 @@ params ["_index"];
 				[_animal, _index] call GRAD_herding_fnc_removeAnimalFromHerd;
 		};
 
-		if (_distance > 4) then {
-			_x setAnimSpeedCoef 1.5;
-			_x playMove GRAD_HERDING_ANIM_RUN;
-		} else {
-			if (_distance > 2) then {
-				_x setAnimSpeedCoef 1;
-				_x playMove GRAD_HERDING_ANIM_WALK;
-			} else {
-				_x setAnimSpeedCoef 1;
-				_x playMove GRAD_HERDING_ANIM_IDLE;
-			};
-		};
+		[{
+			params ["_animal", "_distance", "_targetPos"];
 
-	 	_x moveTo _targetPos;	// go to shepherd
+			[_animal, _distance, _targetPos] call GRAD_herding_fnc_moveAnimal;
+
+		}, [_animal, _distance, _targetPos], random 1.9] call CBA_fnc_waitAndExecute;
 
 	 	if (random _count > _count - _count/10) then {
 	 			[_x] call GRAD_herding_fnc_makeSound;
