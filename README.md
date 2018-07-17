@@ -1,6 +1,6 @@
 # grad-herding
 
-Really basic herding behaviour (wip)
+Really basic herding behaviour for Arma3 (wip)
 
 * spawn herd
 * attach to shepherd
