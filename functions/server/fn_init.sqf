@@ -1,0 +1,8 @@
+#define GRAD_HERDING_DISTANCE_TO_SHEPHERD 3
+
+#define GRAD_HERDING_ANIM_IDLE = "Goat_Idle_Stop"
+#define GRAD_HERDING_ANIM_STOP = "Goat_Stop"
+#define GRAD_HERDING_ANIM_WALK = "Goat_Walk"
+#define GRAD_HERDING_ANIM_RUN = "Goat_Run"
+
+#define GRAD_HERDING_SOUNDS = []
