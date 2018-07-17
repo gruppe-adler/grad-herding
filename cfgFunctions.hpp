@@ -1,4 +1,5 @@
 class GRAD_herding {
+
     class server {
         class addEventhandler;
         class create;
@@ -10,4 +11,5 @@ class GRAD_herding {
         class makeSound;
         class removeAnimalFromHerd;
     };
+    
 };
