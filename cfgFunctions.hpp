@@ -6,7 +6,7 @@ class GRAD_herding {
         class getRandomWaypoint;
         class getWaypointFromShepherd;
         class getWaypointInPanic;
-        class init;
+        class init {preInit = 1;};
         class loop;
         class makeSound;
         class removeAnimalFromHerd;

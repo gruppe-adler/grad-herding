@@ -1,3 +1,13 @@
+/*
+
+	by nomisum for gruppe adler 2018
+
+
+	[position player, player, 15, "Sheep_random_F"] call GRAD_herding_fnc_create;
+*/
+
+
+
 params ["_spawnPosition", ["_count",10], ["_shepherd", objNull], ["_animalType", "Goat_random_F"]];
 
 private _herdArray = [_shepherd, objNull, [], []];

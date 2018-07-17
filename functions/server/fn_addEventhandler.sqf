@@ -1,3 +1,9 @@
+/*
+
+	only on lead animal, used to determine nearby threats
+
+*/
+
 params ["_animal", "_index"];
 
 // reset everything to zero
