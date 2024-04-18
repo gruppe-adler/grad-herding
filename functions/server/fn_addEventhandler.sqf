@@ -6,6 +6,8 @@
 
 params ["_animal", "_index"];
 
+diag_log format ["adding EH for %1", _index];
+
 // reset everything to zero
 _animal setVariable ["GRAD_herding_index", _index];
 
@@ -29,7 +31,7 @@ _animal addEventhandler ["FiredNear", {
 
 			[_animal] call GRAD_herding_fnc_addEventhandler;
 
-		}, [_animal], 7] call CBA_fnc_waitAndExecute;
+		}, [_animal], 30] call CBA_fnc_waitAndExecute;
 
-		_animal removeEventHandler _thisEventhandler;
+		_animal removeAllEventHandlers "FiredNear";
 }];

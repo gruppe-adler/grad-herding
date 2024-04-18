@@ -7,4 +7,6 @@ private _oppositeDirection = (_animal getRelDir _panicPos) - 180 + (random 5 - r
 
 private _wp = _animal getRelPos [GRAD_HERDING_DISTANCE_TO_SHEPHERD * 10, _oppositeDirection];
 
+diag_log format ["getting new wp in panic %1", _wp];
+
 _wp
