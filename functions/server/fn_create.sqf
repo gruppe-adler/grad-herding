@@ -10,13 +10,23 @@
 
 params ["_spawnPosition", ["_count",10], ["_shepherd", objNull], ["_animalType", "Goat_random_F"]];
 
+if (isServer && isMultiplayer) exitWith {
+	(missionNameSpace getVariable ["GRAD_HERDING_MAXFPS", [0,-1]]) params ["_maxFPS", "_client"];
+	if (_client == -1) exitWith {
+		diag_log "cant create sheep herd as no client known to spawn sheep on";
+	};
+	[_spawnPosition, _count, _shepherd, _animalType] remoteExec ["grad_herdings_fnc_create", _client];
+};
+
+_shepherd setVariable ["GRAD_HERDING_SHEPHERD", true, true];
+
 private _herdArray = [_shepherd, objNull, [], []];
 private _herdAnimals = [];
 
 for "_i" from 1 to _count do {
 
 		// Spawn animal
-		_animal = createAgent [_animalType, _spawnPosition, [], 0, "NONE"];
+		private _animal = createAgent [_animalType, _spawnPosition, [], 0, "NONE"];
 
 		// Disable animal behaviour
 		_animal setVariable ["BIS_fnc_animalBehaviour_disable", true];
@@ -33,6 +43,19 @@ for "_i" from 1 to _count do {
 				// Add animal to animal list
 				_herdAnimals pushBack _animal;
 		};
+
+		_animal addEventHandler ["Local", {
+			params ["_entity", "_isLocal"];
+
+			// find new client if simulation ends up on server (e.g. on disconnect)
+			if (_isLocal && isServer && isMultiplayer) then {
+				(missionNameSpace getVariable ["GRAD_HERDING_MAXFPS", [0,-1]]) params ["_maxFPS", "_client"];
+				if (_client == -1) exitWith {
+					diag_log "cant create sheep herd as no client known to move owner of sheep to";
+				};
+				_entity setOwner _client;
+			};
+		}];
 };
 
 // fill herd with animal array

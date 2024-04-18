@@ -1,3 +1,29 @@
+class whistle1
+{
+  name="whistle1";
+  sound[]={"grad-herding\sounds\whistle1.ogg", 1, 1};
+  titles[]={};
+};
+class whistle2
+{
+  name="whistle2";
+  sound[]={"grad-herding\sounds\whistle2.ogg", 1, 1};
+  titles[]={};
+};
+class whistle3
+{
+  name="whistle3";
+  sound[]={"grad-herding\sounds\whistle3.ogg", 1, 1};
+  titles[]={};
+};
+class whistle4
+{
+  name="whistle4";
+  sound[]={"grad-herding\sounds\whistle4.ogg", 1, 1};
+  titles[]={};
+};
+
+
 class goat1
 {
   name="goat1";

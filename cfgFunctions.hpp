@@ -3,7 +3,7 @@ class GRAD_herding {
     class client {
         file = grad-herding\functions\client;
 
-        class addGestureHandler;
+        class addGestureHandler {postInit = 1;};
     };
 
     class server {
@@ -23,6 +23,7 @@ class GRAD_herding {
         class moveAnimal;
         class phoneThem;
         class removeAnimalFromHerd;
+        class setFPS;
     };
     
 };
